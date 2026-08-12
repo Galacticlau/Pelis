@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Recomendador de películas según género, ánimo y duración." />
+  <title>CineMatch | Recomendador de películas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-glow background-glow--one"></div>
+  <div class="background-glow background-glow--two"></div>
+
+  <header class="hero">
+    <nav class="nav container">
+      <a class="brand" href="#">
+        <span class="brand__icon">🎬</span>
+        <span>CineMatch</span>
+      </a>
+      <button id="themeButton" class="icon-button" aria-label="Cambiar tema">☀️</button>
+    </nav>
+
+    <div class="hero__content container">
+      <span class="eyebrow">TU PRÓXIMA PELÍCULA ESTÁ AQUÍ</span>
+      <h1>¿Qué quieres ver <span>hoy?</span></h1>
+      <p>
+        Elige cómo te quieres sentir y te recomendaré películas que podrían gustarte.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters card">
+      <div class="filter-group">
+        <label for="genre">Género</label>
+        <select id="genre">
+          <option value="todos">Todos</option>
+          <option value="Ciencia ficción">Ciencia ficción</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedia">Comedia</option>
+          <option value="Animación">Animación</option>
+          <option value="Misterio">Misterio</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Acción">Acción</option>
+          <option value="Fantasía">Fantasía</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="mood">Hoy quiero algo...</label>
+        <select id="mood">
+          <option value="todos">Sorpréndeme</option>
+          <option value="emocionante">Emocionante</option>
+          <option value="reflexivo">Reflexivo</option>
+          <option value="divertido">Divertido</option>
+          <option value="inspirador">Inspirador</option>
+          <option value="intenso">Intenso</option>
+          <option value="tranquilo">Tranquilo</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="duration">Duración</label>
+        <select id="duration">
+          <option value="todos">Cualquiera</option>
+          <option value="corta">Menos de 2 horas</option>
+          <option value="media">2 a 2 h 30 min</option>
+          <option value="larga">Más de 2 h 30 min</option>
+        </select>
+      </div>
+
+      <button id="recommendButton" class="primary-button">
+        <span>✨</span> Recomiéndame una
+      </button>
+    </section>
+
+    <section id="featuredSection" class="featured card">
+      <div class="featured__visual" id="featuredVisual">
+        <div class="featured__emoji" id="featuredEmoji">🚀</div>
+      </div>
+
+      <div class="featured__content">
+        <span class="featured__label">RECOMENDACIÓN DESTACADA</span>
+        <h2 id="featuredTitle">Interestelar</h2>
+        <div class="meta">
+          <span id="featuredYear">2014</span>
+          <span>•</span>
+          <span id="featuredDuration">2 h 49 min</span>
+          <span>•</span>
+          <span id="featuredGenre">Ciencia ficción</span>
+        </div>
+        <p id="featuredDescription">
+          Un grupo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar para la humanidad.
+        </p>
+
+        <div class="tags" id="featuredTags"></div>
+
+        <div class="featured__actions">
+          <button id="anotherButton" class="secondary-button">🔄 Otra recomendación</button>
+          <button id="favoriteButton" class="ghost-button">♡ Guardar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <span class="eyebrow">MÁS OPCIONES</span>
+        <h2>Películas que podrían gustarte</h2>
+      </div>
+      <p id="resultsCount"></p>
+    </section>
+
+    <section id="movieGrid" class="movie-grid"></section>
+
+    <section class="favorites card">
+      <div>
+        <span class="eyebrow">TU LISTA</span>
+        <h2>Favoritas</h2>
+      </div>
+      <div id="favoritesList" class="favorites__list">
+        <p class="empty-state">Aún no has guardado películas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>CineMatch · recomendaciones para cuando no sabes qué ver 🎞️</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
